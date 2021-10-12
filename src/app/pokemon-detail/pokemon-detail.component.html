@@ -1,0 +1,61 @@
+<img class="goBackBtn" [src]="'assets/svg/back.svg'" (click)="goBack()">
+<div class="pokemonContainer" *ngIf="pokemon" [ngStyle]="{'background-image': 'url(assets/jpg/' + pokemon.id + '.jpg)'}">
+    <h1>{{pokemon.name | titlecase}}</h1>
+    <div class="pokeId">#{{pokemon.id}}</div>
+    <app-favorite-icon class="favoriteIcon" [pokemon]="pokemon"></app-favorite-icon>
+   
+    <div class="pokemonDetails">
+
+        <div class="informationBox" *ngIf="pokemonEvolutions">
+            <h2 class="boxName">Evolutions</h2>
+            <h3>Evolved from: {{pokemonEvolutions.evolves_from_species | titlecase}}</h3>
+            <h3>Can Evolve to: {{ pokemonEvolutions.evolutionTrees.length == 0 ? '(None)' : ''}} </h3>
+            <ol class="list" *ngFor="let evolutionTrees of pokemonEvolutions.evolutionTrees">
+                <li *ngFor='let evolution of evolutionTrees'>
+                    {{evolution | titlecase}}
+                </li>
+            </ol>
+        </div>
+        
+        <div class="informationBox">
+            <h2 class="boxName">Type</h2>
+            <ol class="list">
+                <li *ngFor='let item of pokemon.types'>
+                    {{item.type.name | titlecase}}
+                </li>
+            </ol>
+        </div>
+
+        <div class="informationBox">
+            <h2 class="boxName">Moves</h2>
+            <ul class="list">
+                <li *ngFor='let item of pokemon.moves'>
+                    {{item.move.name | titlecase}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="informationBox">
+            <h2 class="boxName">Games</h2>
+            <ul class="list">
+                <li *ngFor='let item of pokemon.game_indices'>
+                    {{item.version.name | titlecase}}
+                </li>
+            </ul>
+        </div>
+        
+        <div class="informationBox" *ngIf="pokemonLocations && pokemonLocations.length">
+            <h2 class="boxName">Locations</h2>
+            <ul class="list">
+                <li *ngFor='let item of pokemonLocations'>
+                    {{item.location_area.name | titlecase}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="informationBox" *ngIf="pokemonLocations && pokemonLocations.length == 0">
+            <h2 class="boxName">Locations:</h2>
+            <h3>(Cannot be found in the wild)</h3>
+        </div>
+    </div>
+</div>

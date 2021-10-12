@@ -1,0 +1,22 @@
+<h2 *ngIf="isFavorites && pokemons.length == 0">Please Add Pokemons to favorites!</h2>
+
+<div *ngIf="! isFavorites" class="titleContainer">
+    <img class="slider" [src]="'assets/jpg/pokeball.png'" alt="pokeball" >
+    <h2 class="basicTitle">Gotta Catch ’Em All !</h2>
+</div>
+
+<div class="pokemons">
+    <div *ngFor='let pokemon of pokemons'>
+        <div class="pokemon">
+            <app-pokemon-cry class="soundIcon" [pokemon]="pokemon"></app-pokemon-cry>
+            <app-favorite-icon class="favoriteIcon" [pokemon]="pokemon" (newRefreshEvent)="refresh($event)"></app-favorite-icon>
+            <div class="pokeId">#{{pokemon.id}}</div>
+            <a class="linkWrapper" routerLink="/detail/{{pokemon.id}}" >
+                
+                <!-- I Know this isn't the proper way to do this, but considering time limitations and the fact that I'm learning Angular on the fly, thats what i was able to conceive. sorry. -->
+                <img src="assets/svg/{{pokemon.id}}.svg" width="200px" height="200px" (mouseover)="addColor($event)" (mouseleave)="removeColor($event)">
+            </a>
+            <h2>{{pokemon.name | titlecase}}</h2>
+        </div>
+    </div>
+</div>

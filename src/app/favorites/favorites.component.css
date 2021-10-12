@@ -1,0 +1,47 @@
+/* FavoritesComponent's private CSS styles */
+h2 {
+  text-align: center; 
+  font-size: 3em;
+  font-family: cursive;
+  animation: text-animation 3s ease-in alternate;
+
+}
+
+@keyframes text-animation {
+  0%   {
+    opacity: 0;
+    color: transparent;
+  }
+  
+  100% {
+    opacity: 1;
+    color: black;
+  }
+}
+
+.slider {
+  -webkit-animation: slide-my-poke-v2 5s, bounce 5s;
+  animation: slide-my-poke-v2 3s forwards;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes slide-my-poke-v2 {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 550px;
+  }
+}
+
+.titleContainer {
+  /* flexbox */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10%;
+}
+

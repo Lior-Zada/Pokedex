@@ -1,0 +1,47 @@
+/* everywhere  */
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+nav {
+  margin-top: 2em;
+  text-align: center;
+}
+
+nav a {
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  color: black;
+  border-radius: 5%;
+  margin-right: 1em;
+  font-size: 2em;
+
+  background: linear-gradient(-45deg, #8952ee, #f5f5f5, #4ab9e2, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+nav a:hover {
+  background: linear-gradient(-45deg, #3a9979, #1fa789, #fdfdfd, #0a0a0a);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
